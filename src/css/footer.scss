@@ -1,0 +1,87 @@
+.footer{
+    background: #fff;
+}
+.versions {
+    text-align: center;
+    display: block;
+    width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    a {
+        font: 12px/20px 'Microsoft Yahei';
+        height: 20px;
+        color: #999;
+        display: inline-block;
+        overflow: hidden;
+        padding-left: 25px;
+        margin: 0 18px;
+    }
+    .iphone {
+        background: url(http://icon.xcar.com.cn/2016/images/icon2016_v9.png) no-repeat -485px -848px;
+    }
+    .android {
+        background: url(http://icon.xcar.com.cn/2016/images/icon2016_v9.png) no-repeat -485px -798px;
+    }
+    .mobile {
+        background: url(http://icon.xcar.com.cn/2016/images/icon2016_v9.png) no-repeat -485px -900px;
+    }
+}
+.footer_nt {
+    font-family: arial, SimSun;
+    text-align: center;
+    clear: both;
+    color: #666;
+    line-height: 21px;
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 0 10px 0;
+    a {
+        color: #333;
+        display: inline-block;
+        margin: 0 5px;
+    }
+}
+.links {
+    padding: 5px 0 14px;
+    border: 1px solid #e5e5e5;
+    .links_title {
+        width: 950px;
+        margin: 0 14px;
+        line-height: 38px;
+        border-bottom: solid 1px #ececec;
+        .hot_keyword {
+            height: 51px;
+            line-height: 51px;
+            .hot_keyword li {
+                position: relative;
+                height: 50px;
+                float: left;
+                font: bold 18px/50px 'Microsoft YaHei', SimHei;
+                margin-right: 30px;
+                color: #3798dd;
+                cursor: pointer;
+                .active {
+                    color: #444;
+                    border-bottom: solid 3px #3798dd;
+                }
+            }
+        }
+    }
+    .friend_cont {
+        display: block;
+        .friend_nt {
+            font: normal 12px/22px SimSun;
+            color: #ccc;
+            padding: 12px 14px 0 4px;
+            .more {
+                display: inline-block;
+                float: right;
+                padding-left: 13px;
+                background: url(http://icon.xcar.com.cn/2016/images/icon2016_v9.png) no-repeat -496px 7px;
+                margin: -50px 0 0 0;
+                line-height: 18px;
+            }
+        }
+    }
+}

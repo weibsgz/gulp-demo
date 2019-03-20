@@ -8,9 +8,9 @@ module.exports = function(gulp, plugins, options) {
     //     url = ['src/html/**.html', 'src/html/*/*.html']
     // }
     return function() {
-        gulp.src(['src/html/**.html', 'src/html/*/*.html'])
+        gulp.src(['src/html/.\\**\\*'])
             .pipe(plugins.plumber("This file has an error: <%= file.relative %>!"))
-            .pipe(plugins.changed('dist/html'))
+            .pipe(plugins.changed('dist//.\\**\\*'))
             .pipe(plugins.htmlExtend({
                 annotations: true,
                 verbose: false
