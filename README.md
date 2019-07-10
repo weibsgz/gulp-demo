@@ -1,4 +1,4 @@
-# 2019 3月 首页改版
+# 2019 3月 基于GULP构建的DEMO 
 
 
 **项目运行**
@@ -20,17 +20,26 @@ dev和 build都会生成dist文件夹 最后我们交付后台的是这个dist�
 5. SASS转为合并压缩并转为CSS
 
 ### 开发注意点
+
+!!! 提交后端前 所有静态资源相对路径改为asserts.xcarimg.com/.....绝对路径地址
+构建到测试环境 本地绑定HOST
+
 1. 所有CSS只要在src/css/scss下建立就行了（注意建成scss文件），
 所有JS 只要在src/js/下建立就行了
 文件随便建，最后都会合并到一个main.css/main.js中，
 此文件已经在index.html中引入了
 `所有JS插件（比如JQ）请放入src/js/libs文件夹这里边的JS不会打包进入main.js`
 
-2. 每个前端人员自己做的模块都放入components文件中，在index.html使用include引入components，避免冲突
+2. 公共模块都放入components文件中，在任意页面使用include引入components的公共文件
 
 3. 关于切下来的小图标要合成精灵图，只需将小图标放入img/sprite文件夹内就好
 dev/build后 会在 dist/img/sprite/ 生成精灵图 和 对应的 sprite.css
 需要查看小图标具体样式 可打开sprite.css查看class类名，直接使用就可以了
+
+!! 注意 关于2X图 因为MAC高清本看一倍图会发虚
+所以如果要合并精灵图 请把1X、2X图 分别 放入src/img/sprite  src/img/sprite2x
+页面中写class  `<span class="icon-lsj2x icon-lsj">`
+将2倍图的CALSS放前边  1倍图放后边
 
 
 
@@ -40,7 +49,38 @@ dev/build后 会在 dist/img/sprite/ 生成精灵图 和 对应的 sprite.css
 JS不建议合并压缩，不方便今后线上定位问题
 
 
-
+### 和后端联调 
+需要绑定HOST：127.0.0.1 asserts.xcarimg.com 127.0.0.1 dev1.xccar.com.cn
+下载NGINX包 配置如下
+```
+ ### 为了指定asserts.xcar.com到本地，之后给后端的路径就不用变了 需要指定HOST  127.0.0.1 asserts.xcarimg.com
+    server {
+        listen       80;
+        server_name  asserts.xcarimg.com;
+        root   "D:/work/";
+        location / {
+            index  index.html index.htm index.php;
+            if (!-e $request_filename){
+                rewrite ^/(.*) /index.php last;
+            }
+            #autoindex  on;
+        }
+    }
+    
+    ###转发域名到dev1.xcar.com.cn 后端存COOKIE为了取COOKIE  需要指定HOST 127.0.0.1 dev1.xccar.com.cn 保证在相同域名下
+     server {
+        listen       80;
+        server_name  dev1.xcar.com.cn;
+        root   "D:/work/resource/index2019/dist/html/index/";
+        location / {
+            index  index.html index.htm index.php;
+            if (!-e $request_filename){
+                rewrite ^/(.*) /index.php last;
+            }
+            #autoindex  on;
+        }
+    }
+```
 
 
 

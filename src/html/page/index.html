@@ -1,0 +1,21 @@
+<!-- @@include= ../components/header.html-->
+<body>
+    <div class="main-wrap">
+        <!-- 现在都写死在组件里了交付后端时候让他们用PHP套 common/header/aikahao_header -->
+    
+        @@include('../components/top.html')
+        @@include('../components/public1.html', {"title":"概述"})
+        <div class="mt20"></div>
+        @@include('../components/level.html', {
+            "title": "加速测试等级",
+            "level": 4
+        })
+
+        this.is index.html
+        <!-- 现在都写死在组件里了交付后端时候让他们用PHP套 common/footer_utf -->
+        @@include('../components/footer.html')
+    </div>
+
+    <script src='/dist/js/commonCode.js'></script>
+    <script src='/dist/js/module1.js'></script>
+</body>

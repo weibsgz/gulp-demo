@@ -1,0 +1,32 @@
+<div class="pingce-level">
+        <div class="level-title">
+            <span>@@title</span>
+            <i class="cornor icon-corner2x icon-cornor"></i>
+        </div>
+        <ul class="level-star">
+            @@for (var i = 0; i < context.level; i++) {
+                <li class="icon-levelTrue2x icon-levelTrue"></li>
+            }
+            @@for (var i = 0; i < 5 - context.level; i++) {
+                <li class="icon-levelFalse2x icon-levelFalse"></li>
+            }
+        </ul>
+        <div class="level-py">
+            @@if(context.level == 1){
+                差
+            }
+            @@if(context.level == 2){
+                较差
+            }
+            @@if(context.level == 3){
+                一般
+            }
+            @@if(context.level == 4){
+                较好
+            }
+            @@if(context.level == 5){
+                优秀
+            }
+        </div>
+    </div>
+    

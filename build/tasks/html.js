@@ -1,3 +1,4 @@
+var fileinclude = require('gulp-file-include')
 module.exports = function(gulp, plugins, options) {
     const browserSync = require('browser-sync').create();
     const reload = browserSync.reload;
@@ -11,9 +12,9 @@ module.exports = function(gulp, plugins, options) {
         gulp.src(['src/html/.\\**\\*'])
             .pipe(plugins.plumber("This file has an error: <%= file.relative %>!"))
             .pipe(plugins.changed('dist//.\\**\\*'))
-            .pipe(plugins.htmlExtend({
-                annotations: true,
-                verbose: false
+            .pipe(fileinclude({
+                prefix: '@@',
+                basepath: '@file'
             }))
             // .pipe(plugins.if(options.env === 'production', plugins.revCollector({
             //     replaceReved: true,

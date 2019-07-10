@@ -9,16 +9,17 @@ gulp.task('html', getTask('html'));
 
 gulp.task('img', getTask('img'));
 gulp.task('sprite', getTask('sprite'));
+gulp.task('sprite2x', getTask('sprite2x'));
 // gulp.task('concatjs', getTask('concatjs'));
 
-gulp.task('default', ['scripts', 'sass', 'html','img','sprite']);
+gulp.task('default', ['scripts', 'sass', 'html','img','sprite','sprite2x']);
 
 // 静态服务器 + 监听 scss/html 文件
-gulp.task('dev', ['scripts', 'sass', 'html' , 'img','sprite'], function() {
+gulp.task('dev', ['scripts', 'sass', 'html' , 'img','sprite','sprite2x'], function() {
 	browserSync.init({
-		server: "./dist",
-		index:'/html/index/index.html',
-		port:8888  
+		server: "./",
+	    index:'dist/html/page/index.html',
+		port: 8888,
 	});
 	gulp.watch('src/img/**/*', ['img']);
 	gulp.watch('src/img/**/*').on('change', reload);
